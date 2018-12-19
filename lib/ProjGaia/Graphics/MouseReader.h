@@ -7,18 +7,17 @@
 
 class MouseListener;
 
-namespace pg
+namespace pg{
+class MouseReader : public Observer<MouseEvent>
 {
-	class MouseReader : public Observer<MouseEvent>
-	{
-		public:
+	public:
 
 
-		protected:
-			// std::list<Listener<MouseEvent>*>mouseListeners = std::list<Listener<MouseEvent>*>();
-		private:
+	protected:
+		// std::list<Listener<MouseEvent>*>mouseListeners = std::list<Listener<MouseEvent>*>();
+	private:
 
 
-	};
+};
 }
 #endif // MOUSEREADER_H

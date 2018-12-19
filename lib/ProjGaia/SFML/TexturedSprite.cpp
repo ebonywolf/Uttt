@@ -20,8 +20,6 @@ TexturedSprite::~TexturedSprite()
 void TexturedSprite::update ( void* )
 {
 
-	sprite->setPosition ( hitbox->position.x, hitbox->position.y );
-	sprite->setScale ( hitbox->scale.x, hitbox->scale.y );
 }
 void TexturedSprite::draw ( sf::RenderTarget& rt, sf::RenderStates rs ) const
 {

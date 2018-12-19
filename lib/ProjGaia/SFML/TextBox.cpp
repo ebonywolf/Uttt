@@ -8,7 +8,7 @@ TextBox:: TextBox ( pg::Coord dimension, pg::Coord pos,
                     sf::Color color, sf::Font* font, std::string phrase,
                     sf::Color textColor )
 {
-	std::list<Coord> lista = std::list<Coord>();
+	std::vector<Coord> lista = std::vector<Coord>();
 	//making the square
 	Coord bottomLeft = pos;
 	Coord bottomRight = Coord ( pos.x + dimension.x, pos.y );

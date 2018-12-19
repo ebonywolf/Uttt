@@ -21,7 +21,7 @@ namespace pg
 			virtual ~HollowShape();
 		protected:
 			sf::Color color;
-			std::list<sf::Shape*> shapes;
+			std::vector<sf::Shape*> shapes;
 			std::vector<pg::Coord> originalPos;
 			void update ( void* );
 			int width;

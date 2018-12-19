@@ -2,13 +2,13 @@
 #define DRAWABLETYPEBOX_H
 
 
-#include <ProjGaia/Tools/TypeBox.h>
+
 #include "DrawableSprite.h"
 
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-class DrawableTypeBox: public pg::DrawableSprite, public TypeBox
+class DrawableTypeBox: public pg::DrawableSprite
 {
 	public:
 
@@ -20,6 +20,7 @@ class DrawableTypeBox: public pg::DrawableSprite, public TypeBox
 		void draw ( sf::RenderTarget&, sf::RenderStates ) const ;
 
 	protected:
+	    std::string phrase;
 		sf::Text text;
 	private:
 };

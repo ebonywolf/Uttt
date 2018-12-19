@@ -6,7 +6,7 @@ using namespace sf;
 using namespace pg;
 
 HollowShape::HollowShape ( pg::Polygon poly, sf::Color color, int width ) :
-	DrawableSprite ( new Polygon ( ( const Polygon ) poly ) ),
+	DrawableSprite ( new HitBox( poly ) ),
 	color ( color ), width ( width )
 {
 	_ini ( poly );
@@ -18,9 +18,9 @@ HollowShape::~HollowShape()
 }
 void HollowShape::_ini ( pg::Polygon poly )
 {
-	shapes = std::list<sf::Shape*>();
+	shapes = std::vector<sf::Shape*>();
 	originalPos = std::vector<pg::Coord>();
-	std::list<LineSeg> lines = poly.getLines();
+	std::vector<LineSeg> lines = poly.getLines();
 	for ( auto x : lines ) {
 		Shape* line = createLine ( x );
 		shapes.push_back ( line );

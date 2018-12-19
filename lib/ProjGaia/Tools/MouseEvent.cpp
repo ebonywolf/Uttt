@@ -1,16 +1,15 @@
 #include "MouseEvent.h"
 
 
-namespace pg
+namespace pg{
+MouseEvent::MouseEvent ( Click click, pg::Coord coord, pg::Coord screenCoord ) :
+	click ( click ), coord ( coord ), screenCoord ( screenCoord )
 {
-	MouseEvent::MouseEvent ( Click click, pg::Coord coord, pg::Coord screenCoord ) :
-		click ( click ), coord ( coord ), screenCoord ( screenCoord )
-	{
-		//ctor
-	}
+	//ctor
+}
 
-	MouseEvent::~MouseEvent()
-	{
-		//dtor
-	}
+MouseEvent::~MouseEvent()
+{
+	//dtor
+}
 }

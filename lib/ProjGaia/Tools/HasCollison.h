@@ -4,16 +4,16 @@
 
 namespace pg
 {
-	class HasCollison
-	{
-		public:
+class HasCollison
+{
+	public:
 
-			virtual ~HasCollison() = default;
+		virtual ~HasCollison() = default;
 
-			virtual HitBox* getHitBox() = 0;
+		virtual HitBox* getHitBox()const = 0;
 
-		protected:
-		private:
-	};
+	protected:
+	private:
+};
 }
 #endif // HASCOLLISON_H

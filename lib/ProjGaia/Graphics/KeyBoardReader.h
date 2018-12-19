@@ -6,16 +6,15 @@
 #include "../Tools/KeyBoardEvent.h"
 #include "../Tools/Observer.h"
 
-namespace pg
+namespace pg{
+class KeyBoardReader: public Observer<KeyBoardEvent>
 {
-	class KeyBoardReader: public Observer<KeyBoardEvent>
-	{
-		public:
+	public:
 
 
-		protected:
-			// std::list<Listener<KeyBoardEvent>*>keyBoardListeners = std::list<Listener<KeyBoardEvent>*>();
-		private:
-	};
+	protected:
+		// std::list<Listener<KeyBoardEvent>*>keyBoardListeners = std::list<Listener<KeyBoardEvent>*>();
+	private:
+};
 }
 #endif // KEYBOARDREADER_H

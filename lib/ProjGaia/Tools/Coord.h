@@ -4,36 +4,52 @@
 
 namespace pg
 {
-	class Coord
-	{
-		public:
-			/** Default constructor */
-			double x = 0, y = 0;
-			Coord() = default;
-			Coord ( double x, double y );
-			/** Default destructor */
-			virtual ~Coord();
-			void move ( double angle, double speed );
-			double distance ( Coord );
-			void operator+= ( Coord );
-			void operator-= ( Coord );
+class Coord
+{
+	public:
+	    enum AXIS{
+            XY,XZ,YZ
+	    };
 
-			Coord operator+ ( Coord );
-			Coord operator- ( Coord );
-			Coord operator* ( Coord );
-			Coord operator/ ( Coord );
+		/** Default constructor */
+		double x = 0, y = 0, z =  0;
+		Coord() = default;
+		Coord ( double x, double y,double z=0 );
+		/** Default destructor */
+		virtual ~Coord();
+		void move ( double angle, double speed, AXIS = XY);
+		void rotate(Coord origin, double angle, AXIS=XY);
+		double distance ( Coord ) const;
+		double cross(const Coord&, AXIS =XY ) const;
 
-			void operator*= ( double k );
-			Coord operator* ( double k );
-			Coord operator/ ( double k );
+		void operator+= ( Coord );
+		void operator-= ( Coord );
+		void operator*= ( Coord );
+		void operator/= ( Coord );
 
-			friend std::ostream& operator<< ( std::ostream&, const Coord& );
+		Coord operator+ ( Coord )const;
+		Coord operator- ( Coord )const;
+		Coord operator* ( Coord )const;
+		Coord operator/ ( Coord )const;
 
-			bool operator== ( Coord );
-			bool operator!= ( Coord );
-			double modulo();
-		protected:
-		private:
-	};
+		void operator*= ( double k );
+		void operator/= ( double k );
+		Coord operator* ( double k )const;
+		Coord operator/ ( double k )const;
+
+
+		friend std::ostream& operator<< ( std::ostream& os, const Coord& p )
+		{
+			os << "X:" << p.x << "  Y:" << p.y<<" Z:"<<p.z;
+			return os;
+
+		}
+
+		bool operator== ( Coord );
+		bool operator!= ( Coord );
+		double modulo();
+	protected:
+	private:
+};
 }
 #endif // COORD_H

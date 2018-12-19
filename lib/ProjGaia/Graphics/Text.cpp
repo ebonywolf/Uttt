@@ -1,14 +1,13 @@
 #include "Text.h"
-namespace pg
+namespace pg{
+Text::Text ( String text, float size, String font, pg::Coord pos ) :
+	text ( text ), size ( size ), font ( font ), pos ( pos )
 {
-	Text::Text ( String text, float size, String font, pg::Coord pos ) :
-		text ( text ), size ( size ), font ( font ), pos ( pos )
-	{
-		//ctor
-	}
+	//ctor
+}
 
-	Text::~Text()
-	{
-		//dtor
-	}
+Text::~Text()
+{
+	//dtor
+}
 }

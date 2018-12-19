@@ -1,11 +1,11 @@
 #include "ColoredShape.h"
-#include <list>
+#include <vector>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <ProjGaia/Tools/Polygon.h>
 namespace pg
 {
-	ColoredShape::ColoredShape ( std::list<pg::Coord> coords, sf::Color color ) :
+	ColoredShape::ColoredShape ( std::vector<pg::Coord> coords, sf::Color color ) :
 		color ( color )
 	{
 		pg::Polygon poly ( coords );
@@ -41,7 +41,7 @@ namespace pg
 	}
 	void ColoredShape::createShape ( pg::Polygon polygon )
 	{
-		std::list<pg::LineSeg> lines = polygon.getLines();
+		std::vector<pg::LineSeg> lines = polygon.getLines();
 		int points = lines.size();
 		sf::ConvexShape* shape2 = new sf::ConvexShape ( points );
 		int i = 0;
@@ -57,16 +57,18 @@ namespace pg
 	void ColoredShape::update ( void* )
 	{
 		shape->setPosition ( hitbox->position.x, hitbox->position.y );
+		shape->setFillColor( color );
 
 
 	}
 	void ColoredShape::draw ( sf::RenderTarget& rt, sf::RenderStates rs ) const
 	{
+	    std::cout<< "drawing: "<<hitbox->position <<std::endl;
 		rt.draw ( *shape, rs );
 	}
 	ColoredShape ColoredShape::createSquare ( pg::Coord dimension, pg::Coord position, sf::Color color )
 	{
-		std::list<Coord> lista;
+		std::vector<Coord> lista;
 		lista.push_back ( position );
 		lista.push_back ( Coord ( position.x + dimension.x, position.y ) );
 		lista.push_back ( dimension + position );

@@ -3,7 +3,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 namespace pg
 {
-	DrawableSprite::DrawableSprite() : Sprite ( Coord(), Coord ( 1, 1 ), 0, 1 )
+	DrawableSprite::DrawableSprite() : Sprite ( Coord(), Coord ( 1, 1 ), 0 )
 	{
 		//ctor
 	}
@@ -12,7 +12,7 @@ namespace pg
 
 	}
 	DrawableSprite::DrawableSprite ( pg::Coord position, pg::Coord scale, float rotation, float height ) :
-		pg::Sprite ( position, scale, rotation, height )
+		pg::Sprite ( position, scale, height )
 	{
 
 	}

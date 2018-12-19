@@ -4,21 +4,20 @@
 #include "DrawableType.h"
 #include "Text.h"
 
-namespace pg
+namespace pg{
+class DrawableButton : public Button, DrawableType
 {
-	class DrawableButton : public Button, DrawableType
-	{
-		public:
-			/** Default constructor */
-			DrawableButton ( pg::Sprite* main, pg::Sprite* off, pg::Sprite* half, Text* text );
-			/** Default destructor */
-			virtual ~DrawableButton();
-			virtual pg::Sprite* getSprite();
-			pg::Sprite *main, *off, *half;
-			Text* text;
-		protected:
+	public:
+		/** Default constructor */
+		DrawableButton ( pg::Sprite* main, pg::Sprite* off, pg::Sprite* half, Text* text );
+		/** Default destructor */
+		virtual ~DrawableButton();
+		virtual pg::Sprite* getSprite();
+		pg::Sprite *main, *off, *half;
+		Text* text;
+	protected:
 
-		private:
-	};
+	private:
+};
 }
 #endif // DRAWABLEBUTTON_H

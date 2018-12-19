@@ -4,15 +4,15 @@
 
 namespace pg
 {
-	class NeedsUpdate
-	{
-		public:
+class NeedsUpdate
+{
+	public:
 
-			/** Default destructor */
-			virtual ~NeedsUpdate() = default;
-			virtual void update ( void* arg ) = 0;
-		protected:
-		private:
-	};
+		/** Default destructor */
+		virtual ~NeedsUpdate() = default;
+		virtual void update ( void* arg ) = 0;
+	protected:
+	private:
+};
 }
 #endif // NEEDSUPDATE_H

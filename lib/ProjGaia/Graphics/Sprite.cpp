@@ -7,16 +7,29 @@ Sprite::Sprite ( HitBox* h ) : hitbox ( h )
 {
 
 }
-
-Sprite::Sprite ( Coord position = Coord(), Coord scale = Coord ( 1, 1 ), float rotation = 0, float height = 1 ) :
-	hitbox ( new SquareHitBox ( 0, 0, position ) )
+Sprite::Sprite ( std::vector<Coord> lista ) :
+	hitbox ( new HitBox ( lista ) )
 {
-	hitbox->scale = scale;
-	hitbox->rotation = rotation;
+
+
+}
+Sprite::Sprite( const Sprite &s):Sprite(s.getHitBox()->getPolygon().getPoints())
+{
+
+
+
+}
+
+Sprite::Sprite ( Coord position = Coord(), Coord scale = Coord ( 1, 1 ), float height = 1 ) :
+	hitbox ( new SquareHitBox ( position, scale ) )
+{
+
 	hitbox->z = height;
 }
 
 Sprite::~Sprite()
 {
-	//dtor
+	if ( hitbox != nullptr && _deleteHitbox ) {
+		delete ( hitbox );
+	}
 }

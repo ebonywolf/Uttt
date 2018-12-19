@@ -3,13 +3,13 @@
 
 namespace pg
 {
-	template<class Tipo>
-	class Listener
-	{
-		public:
-			virtual void notify ( Tipo ) = 0;
-		protected:
-		private:
-	};
+template<class Tipo>
+class Listener
+{
+	public:
+		virtual void notify ( Tipo ) = 0;
+	protected:
+	private:
+};
 }
 #endif // LISTENER_H

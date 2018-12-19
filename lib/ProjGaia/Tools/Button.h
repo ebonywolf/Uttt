@@ -5,25 +5,24 @@
 #include "Coord.h"
 #include "Polygon.h"
 //TODO :Button implement states
-namespace pg
+namespace pg{
+class Button: public Observer<int>
 {
-	class Button: public Observer<int>
-	{
-		public:
-			enum ButtonState {
-				HALF_CLICKED, OFF, ON
-			};
+	public:
+		enum ButtonState {
+			HALF_CLICKED, OFF, ON
+		};
 
-			/** Default constructor */
-			Button () = default;
-			virtual void activate ( int n ); //avisa observadores
-			virtual ~Button();
-			ButtonState state;
+		/** Default constructor */
+		Button () = default;
+		virtual void activate ( int n ); //avisa observadores
+		virtual ~Button();
+		ButtonState state;
 
-		protected:
+	protected:
 
-		private:
-	};
+	private:
+};
 }
 
 #endif // BUTTON_H

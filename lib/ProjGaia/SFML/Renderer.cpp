@@ -40,14 +40,15 @@ namespace pg
 			pg::Coord dimension = pg::Coord ( window->getSize().x, window->getSize().y );
 
 			//ajuste de acordo com a camera
-			x = ( dimension / 2 - dimension / ( camera->zoom * 2 ) ) + x / camera->zoom;
+
+			x = ( dimension / 2 - dimension / ( camera->getHitBox()->getScale().x * 2 ) ) + x / camera->getHitBox()->getScale().x;
 
 			//ajuste de acordo com a resolução
 			pg::Coord resolution = pg::Coord ( window->getDefaultView().getSize().x, window->getDefaultView().getSize().y ) ;
 			resolution = dimension / resolution;
 			x = x / resolution;
 
-			x = x + camera->pos;
+			x = x + camera->getHitBox()->position;
 		}
 		return x;
 
@@ -228,11 +229,11 @@ namespace pg
 	}
 	void Renderer::drawSprites()
 	{
-
+        std::cout<< sprites.size() <<std::endl;
 		View v = window->getView();
-		v.setRotation ( camera->rotation );
-		v.setCenter ( dimX / 2 + camera->pos.x , dimY / 2 + camera->pos.y );
-		v.setSize ( dimX / camera->zoom, dimY / camera->zoom );
+		v.setRotation ( camera->_rotation );
+		//v.setCenter ( dimX / 2 + camera->getHitBox()->position.x , dimY / 2 + camera->getHitBox()->position.y );
+		//v.setSize ( dimX / camera->getHitBox()->getScale().x, dimY / camera->getHitBox()->getScale().x );
 		window->setView ( v );
 		//  v.setSize()
 //   view.setCenter(  , camera->pos.y);
@@ -240,7 +241,7 @@ namespace pg
 		//std::cout<<view.getCenter().x<<std::endl;
 
 		for ( DrawableType * type : sprites ) {
-			DrawableSprite* s = ( DrawableSprite* ) type->getSprite();
+			DrawableSprite* s =dynamic_cast<DrawableSprite*>(type->getSprite());
 			if ( s != 0 ) {
 				s->update ( 0 );
 				window->draw ( *s );

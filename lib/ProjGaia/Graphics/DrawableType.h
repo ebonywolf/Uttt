@@ -2,21 +2,21 @@
 #define DRAWABLETYPE_H
 namespace pg
 {
-	class Sprite;
+class Sprite;
 
-	class DrawableType
-	{
-		public:
-			/** Default constructor */
+class DrawableType
+{
+	public:
+		/** Default constructor */
 
-			/** Default destructor */
-			virtual ~DrawableType() {};
+		/** Default destructor */
+		virtual ~DrawableType() {};
 
-			virtual pg::Sprite* getSprite() = 0;
-		protected:
+		virtual pg::Sprite* getSprite() = 0;
+	protected:
 
-		private:
-	};
+	private:
+};
 }
 
 #endif // DRAWABLETYPE_H

@@ -2,18 +2,17 @@
 #define WINDOWTYPE_H
 
 
-namespace pg
+namespace pg{
+class WindowType
 {
-	class WindowType
-	{
-		public:
+    public:
 
-			/** Default destructor */
-			virtual ~WindowType() = default;
-			virtual int getWidth() = 0;
-			virtual int getHeight() = 0;
-		protected:
-		private:
-	};
+        /** Default destructor */
+        virtual ~WindowType()=default;
+        virtual int getWidth()=0;
+       virtual int getHeight()=0;
+    protected:
+    private:
+};
 }
 #endif // WINDOWTYPE_H

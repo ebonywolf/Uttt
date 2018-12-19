@@ -2,17 +2,16 @@
 #define ACTOR_H
 
 //TODO : Actor everything
-namespace pg
+namespace pg{
+class Actor
 {
-	class Actor
-	{
-		public:
-			/** Default constructor */
-			Actor();
-			/** Default destructor */
-			virtual ~Actor();
-		protected:
-		private:
-	};
+	public:
+		/** Default constructor */
+		Actor();
+		/** Default destructor */
+		virtual ~Actor();
+	protected:
+	private:
+};
 }
 #endif // ACTOR_H

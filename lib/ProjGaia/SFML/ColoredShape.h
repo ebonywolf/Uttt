@@ -14,7 +14,7 @@ namespace pg
 		public:
 			/** Default constructor */
 			ColoredShape();
-			ColoredShape ( std::list<pg::Coord> coords, sf::Color );
+			ColoredShape ( std::vector<pg::Coord> coords, sf::Color );
 			ColoredShape ( pg::Polygon, sf::Color );
 			ColoredShape ( sf::Shape* );
 			ColoredShape ( pg::Polygon , pg::Coord position, pg::Coord scale, float rotation, float height, sf::Color );
@@ -24,7 +24,7 @@ namespace pg
 
 			static ColoredShape createSquare ( pg::Coord dimension, pg::Coord position, sf::Color );
 
-
+            void setColor(int r, int g, int b, int a){ color = sf::Color(r,g,b,a);}
 
 		protected:
 			sf::Color color;

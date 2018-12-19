@@ -14,6 +14,11 @@ MultiSprite::MultiSprite ( std::list<pg::DrawableSprite*> lista )
 MultiSprite::~MultiSprite()
 {
 
+    while(sprites.size()>0){
+        auto it= sprites.front();
+        sprites.pop_front();
+        delete(it);
+    }
 }
 
 void MultiSprite::add ( pg::DrawableSprite* p )
